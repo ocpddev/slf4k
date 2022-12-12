@@ -12,10 +12,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-          cache: 'gradle'
-
-      - name: Build
-        run: ./gradlew build publish
+      - name: Build and Publish
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build publish
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
