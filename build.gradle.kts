@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.7.21"
+    id("org.jetbrains.dokka") version "1.7.20"
     `maven-publish`
     signing
 }
@@ -13,6 +14,11 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
     withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.named<Jar>("javadocJar") {
+  from(tasks.named("dokkaJavadoc"))
 }
 
 tasks.withType<KotlinCompile> {
