@@ -84,7 +84,7 @@ signing {
     val key = findSecret("ocpd.sign.key", "OCPD_SIGN_KEY")
     if (key != null) {
         val keyId = findSecret("ocpd.sign.key.id", "OCPD_SIGN_KEY_ID")
-        val passphrase = findSecret("ocpd.sign.passphrase", "OCPD_SIGN_PASSPHRASE")
+        val passphrase = findSecret("ocpd.sign.passphrase", "OCPD_SIGN_PASSPHRASE") ?: ""
         useInMemoryPgpKeys(keyId, key, passphrase)
     }
     sign(publishing.publications["maven"])
