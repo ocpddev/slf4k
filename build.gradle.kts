@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.20"
+    kotlin("jvm") version "1.7.21"
     `maven-publish`
     signing
 }
@@ -32,9 +32,9 @@ repositories {
 
 dependencies {
     api(kotlin("stdlib-jdk8"))
-    api("org.slf4j:slf4j-api:2.0.3")
-    testImplementation("ch.qos.logback:logback-core:1.4.4")
-    testImplementation("ch.qos.logback:logback-classic:1.4.4")
+    api("org.slf4j:slf4j-api:2.0.5")
+    testImplementation("ch.qos.logback:logback-core:1.4.5")
+    testImplementation("ch.qos.logback:logback-classic:1.4.5")
     testImplementation(kotlin("test-junit5"))
 }
 
