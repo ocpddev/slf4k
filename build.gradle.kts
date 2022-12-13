@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "dev.ocpd.slf4k"
-version = "0.0.1"
+version = "0.0.2-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
