@@ -8,7 +8,6 @@ plugins {
 }
 
 group = "dev.ocpd.slf4k"
-version = "0.0.2-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -18,7 +17,7 @@ java {
 }
 
 tasks.named<Jar>("javadocJar") {
-  from(tasks.named("dokkaJavadoc"))
+    from(tasks.named("dokkaJavadoc"))
 }
 
 tasks.withType<KotlinCompile> {
