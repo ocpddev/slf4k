@@ -2,9 +2,9 @@ package dev.ocpd.slf4k
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.lang.invoke.MethodHandles
 import kotlin.properties.PropertyDelegateProvider
 import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KClass
 
 /**
  * Concise way to create loggers.
@@ -17,26 +17,11 @@ import kotlin.properties.ReadOnlyProperty
  * ```
  */
 val slf4j = PropertyDelegateProvider<Any, ReadOnlyProperty<Any, Logger>> { thisRef, _ ->
-    val logger = LoggerFactory.getLogger(thisRef.javaClass)
+    val logger = LoggerFactory.getLogger(thisRef::class.unwrapCompanion())
     ReadOnlyProperty { _, _ -> logger }
 }
 
-/**
- * Concise way to create loggers.
- * This alternative is safe to use in companion objects.
- *
- * Usage:
- * ```
- * class YourClass {
- *     companion object {
- *         private val log = slf4j() // will create logger for YourClass
- *     }
- * }
- * ```
- */
-@JvmName("slf4jByLookup")
-@Suppress("NOTHING_TO_INLINE") // force inline for not breaking lookup
-inline fun slf4j(): Logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass())
+private fun <T : Any> KClass<T>.unwrapCompanion() = if (isCompanion) java.declaringClass else java
 
 /**
  * Concise way to create loggers.
