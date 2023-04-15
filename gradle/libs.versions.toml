@@ -1,0 +1,12 @@
+[versions]
+kotlin = "1.8.20"
+logback = "1.4.5"
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+dokka = { id = "org.jetbrains.dokka", version = "1.8.10" }
+[libraries]
+slf4j = { module = "org.slf4j:slf4j-api", version = "2.0.6" }
+logback-core = { module = "ch.qos.logback:logback-core", version.ref = "logback" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+[bundles]
+logback = ["logback-core", "logback-classic"]
