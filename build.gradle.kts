@@ -23,6 +23,8 @@ repositories {
 
 dependencies {
     api(libs.slf4j)
+    // required to check if a class is a companion object
+    // see: dev.ocpd.slf4k.Slf4JKt#unwrapCompanion
     implementation(kotlin("reflect"))
     testImplementation(libs.bundles.logback)
     testImplementation(kotlin("test-junit5"))
