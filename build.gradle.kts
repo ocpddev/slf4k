@@ -22,7 +22,6 @@ repositories {
 }
 
 dependencies {
-    api(kotlin("stdlib-jdk8"))
     api(libs.slf4j)
     implementation(kotlin("reflect"))
     testImplementation(libs.bundles.logback)
@@ -34,8 +33,8 @@ tasks.named<Jar>("javadocJar") {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=all")
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict", "-Xjvm-default=all")
     }
 }
 
