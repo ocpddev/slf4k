@@ -10,25 +10,11 @@ plugins {
 group = "dev.ocpd.slf4k"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
     withSourcesJar()
     withJavadocJar()
-}
-
-tasks.named<Jar>("javadocJar") {
-    from(tasks.named("dokkaJavadoc"))
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=all")
-        jvmTarget = JavaVersion.VERSION_17.toString()
-    }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
 }
 
 repositories {
@@ -41,6 +27,20 @@ dependencies {
     implementation(kotlin("reflect"))
     testImplementation(libs.bundles.logback)
     testImplementation(kotlin("test-junit5"))
+}
+
+tasks.named<Jar>("javadocJar") {
+    from(tasks.named("dokkaJavadoc"))
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=all")
+    }
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
 
 publishing {
