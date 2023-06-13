@@ -1,6 +1,6 @@
 [versions]
 kotlin = "1.8.22"
-logback = "1.4.7"
+logback = "1.4.8"
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 dokka = { id = "org.jetbrains.dokka", version = "1.8.20" }
