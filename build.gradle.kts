@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.dokka)
@@ -34,9 +32,9 @@ tasks.named<Jar>("javadocJar") {
     from(tasks.named("dokkaJavadoc"))
 }
 
-tasks.withType<KotlinCompile> {
+kotlin {
     compilerOptions {
-        freeCompilerArgs.addAll("-Xjsr305=strict", "-Xjvm-default=all")
+        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=all")
     }
 }
 
