@@ -47,23 +47,23 @@ publishing {
         create<MavenPublication>("maven") {
             from(components["java"])
             pom {
-                name.set("slf4k")
-                description.set("Kotlin extensions for SLF4J")
-                url.set("https://github.com/ocpddev/slf4k")
+                name = "slf4k"
+                description = "Kotlin extensions for SLF4J"
+                url = "https://github.com/ocpddev/slf4k"
                 licenses {
                     license {
-                        name.set("The Apache License, Version 2.0")
-                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                        name = "The Apache License, Version 2.0"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
                     }
                 }
                 scm {
-                    url.set("https://github.com/ocpddev/slf4k")
+                    url = "https://github.com/ocpddev/slf4k"
                 }
                 developers {
                     developer {
-                        id.set("sola")
-                        name.set("Sola")
-                        email.set("sola@ocpd.dev")
+                        id = "sola"
+                        name = "Sola"
+                        email = "sola@ocpd.dev"
                     }
                 }
             }
