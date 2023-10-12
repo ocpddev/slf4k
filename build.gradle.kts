@@ -11,7 +11,7 @@ group = "dev.ocpd.slf4k"
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion = JavaLanguageVersion.of(17)
     }
     withSourcesJar()
     withJavadocJar()
