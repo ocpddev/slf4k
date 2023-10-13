@@ -8,9 +8,6 @@ plugins {
 group = "dev.ocpd.slf4k"
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
     withSourcesJar()
     withJavadocJar()
 }
@@ -33,6 +30,7 @@ tasks.named<Jar>("javadocJar") {
 }
 
 kotlin {
+    jvmToolchain(17)
     compilerOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=all")
     }
